@@ -1,3 +1,4 @@
+import json
 from commons.log_helper import get_logger
 from commons.abstract_lambda import AbstractLambda
 
@@ -10,12 +11,21 @@ class HelloWorld(AbstractLambda):
         pass
         
     def handle_request(self, event, context):
-        """
-        Explain incoming event here
-        """
-        # todo implement business logic
-        return 200
-    
+        
+        _LOG.info(f"Event: {event}")
+
+        method = event["requestContext"]["http"]["method"]
+        path = event["requestContext"]["http"]["path"]
+
+        if method == "GET" and path == "/hello":
+           return {
+               "statusCode": 200,
+               "body": json.dumps({
+                   'statusCode': 200,
+                   'message': 'Hello from Lambda'
+               })
+           }
+            
 
 HANDLER = HelloWorld()
 
