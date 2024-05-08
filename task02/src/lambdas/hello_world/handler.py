@@ -23,10 +23,11 @@ class HelloWorld(AbstractLambda):
                })
            }
         else:
-             return {
-               "statusCode": 400,
-               "message": "Bad request syntax or unsupported method. Request path: {path}. HTTP method: {http_method}"
-
+           return {
+               "statusCode": 200,
+               "body": json.dumps({
+                   "statusCode": 400,
+                   "message": "Bad request syntax or unsupported method. Request path: {path}. HTTP method: {http_method}"})
              }
             
 HANDLER = HelloWorld()
