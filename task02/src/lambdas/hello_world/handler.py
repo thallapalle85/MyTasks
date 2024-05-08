@@ -16,15 +16,14 @@ class HelloWorld(AbstractLambda):
 
         if http_method == "GET" and path == "/hello":
            return {
-                "body": json.dumps({
+                
                 "statusCode": 200,
                 "message": "Hello from Lambda"
-               })
-           }
+               }     
         else:
              return {
                "statusCode": 400,
-               "message": "Bad request syntax or unsupported method. Request path: /student_id. HTTP method: {http_method}"
+               "message": "Bad request syntax or unsupported method. Request path: {path}. HTTP method: {http_method}"
 
              }
             
