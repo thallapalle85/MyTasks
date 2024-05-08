@@ -24,10 +24,10 @@ class HelloWorld(AbstractLambda):
            }
         elif http_method == "GET" and path == "/cmtr-bc403d86":
            return {
-               "statusCode": 200,
+               "statusCode": 400,
                "body": json.dumps({
                    "statusCode": 400,
-                   "message": "Bad request syntax or unsupported method. Request path: {path}. HTTP method: {http_method}"})
+                   "message": "Bad request syntax or unsupported method. Request path: /cmtr-bc403d86. HTTP method: GET"})
              }
             
 HANDLER = HelloWorld()
