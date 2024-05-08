@@ -7,12 +7,8 @@ _LOG = get_logger('HelloWorld-handler')
 
 class HelloWorld(AbstractLambda):
 
-    def validate_request(self, event) -> dict:
-        pass
-        
     def handle_request(self, event, context):
         
-
         _LOG.info(f"Event: {event}")
 
         http_method = event["requestContext"]["http"]["method"]
@@ -22,8 +18,8 @@ class HelloWorld(AbstractLambda):
            return {
                "statusCode": 200,
                "body": json.dumps({
-                   'statusCode': 200,
-                   'message': 'Hello from Lambda'
+                   "statusCode": 200,
+                   "message": "Hello from Lambda"
                })
            }
         else:
@@ -33,9 +29,7 @@ class HelloWorld(AbstractLambda):
 
              }
             
-
 HANDLER = HelloWorld()
-
 
 def lambda_handler(event, context):
     return HANDLER.lambda_handler(event=event, context=context)
