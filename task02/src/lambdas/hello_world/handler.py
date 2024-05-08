@@ -22,7 +22,12 @@ class HelloWorld(AbstractLambda):
                    "message": "Hello from Lambda"
                })
            }
+        else:
+             return {
+               "statusCode": 400,
+               "message": "Bad request syntax or unsupported method. Request path: {path}. HTTP method: {http_method}"
 
+             }
             
 HANDLER = HelloWorld()
 
