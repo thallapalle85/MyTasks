@@ -16,10 +16,9 @@ class HelloWorld(AbstractLambda):
 
         if http_method == "GET" and path == "/hello":
            return {
-               "statusCode": 200,
-               "body": json.dumps({
-                   "statusCode": 200,
-                   "message": "Hello from Lambda"
+                "body": json.dumps({
+                "statusCode": 200,
+                "message": "Hello from Lambda"
                })
            }
         else:
